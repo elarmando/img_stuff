@@ -6,11 +6,6 @@ let canvas_out: HTMLCanvasElement;
 
 
 function init() {
-  var kernel = createKernel3x3();
-  console.log(kernel);
-
-  var kernel2 = createKernel7x7();
-  console.log(kernel2);
   input = get("input-img");
   canvas = get("canvas") as HTMLCanvasElement;
   canvas_out = get("canvas-out") as HTMLCanvasElement;
