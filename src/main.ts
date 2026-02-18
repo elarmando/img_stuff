@@ -1,4 +1,4 @@
-import { createKernel3x3, createKernel7x7 } from "./gaussian";
+import { createKernel3x3, createKernel7x7, gaussian_filter } from "./gaussian";
 
 let input;
 let canvas: HTMLCanvasElement;
@@ -55,7 +55,7 @@ function processImg(canvasIn: HTMLCanvasElement, canvasOut: HTMLCanvasElement) {
     throw new Error("cant create image data");
   }
 
-  let dataIn = imgData.data;
+  /*let dataIn = imgData.data;
   let dataOut = outImgData.data;
 
   for (let y = 0; y < h; y++) {
@@ -66,7 +66,9 @@ function processImg(canvasIn: HTMLCanvasElement, canvasOut: HTMLCanvasElement) {
       dataOut[pixel_pos + 2] = dataIn[pixel_pos + 2] || 0;
       dataOut[pixel_pos + 3] = dataIn[pixel_pos + 3] || 0;
     }
-  }
+  }*/
+
+  gaussian_filter(imgData, outImgData);
 
   ctxOut?.putImageData(outImgData, 0, 0);
 }
